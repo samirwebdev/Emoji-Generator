@@ -29,6 +29,9 @@ const retriveData = () => {
 		data = JSON.parse(data);
 		return data;
 	}
+	else{
+	  getData();
+	}
 };
 const main = () => {
 	let data = retriveData();
@@ -42,6 +45,7 @@ const falling = () => {
 	fall.innerText = data[num].character;
 	fall.style.left = r + "vw";
 };
+main();
 falling();
 setInterval(falling, 5000);
 btn.addEventListener("click", main);
