@@ -63,7 +63,7 @@ body {
 }
 #btn {
 	border-radius: 15px;
-	background: #872e00;
+	background: #ee2e00;
 	width: 150px;
 	height: 50px;
 	border: none;
@@ -97,7 +97,4 @@ body {
 		-3px -3px 0 #000,
 		3px -3px 0 #000;
 }
-.falling-items {
-	display: flex;
-	justify-content: space-between;
-}
+
