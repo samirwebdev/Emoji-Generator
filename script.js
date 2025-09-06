@@ -10,6 +10,7 @@ const loadEmoji = async () => {
 		let data = await res.json();
 		data = JSON.stringify(data);
 		localStorage.setItem("Emojis", data);
+		name.innerText = "Go on buddy! Everything is Ready.";
 	} catch (e) {
 		name.innerText = "Something went wrong! Please try again.";
 	}
@@ -34,15 +35,21 @@ if (!localStorage.getItem("Emojis")) {
 btn.addEventListener("click", showEmoji);
 
 const falling = () => {
-	let n = Math.floor(Math.random() * 1859);
-	let r = Math.floor(Math.random() * 80);
-	let emojiArray = localStorage.getItem("Emojis");
-	emojiArray = JSON.parse(emojiArray);
-	falls.forEach(fall => {
-		fall.innerText = emojiArray[n].character;
-		fall.style.left = r + "vw";
-	});
-	console.log(emojiArray);
+	try {
+		let emojiArray = localStorage.getItem("Emojis");
+		emojiArray = JSON.parse(emojiArray);
+		falls.forEach(fall => {
+			let n = Math.floor(Math.random() * 1859);
+			let r = Math.floor(Math.random() * 80);
+			let v = Math.floor(Math.random() * 30);
+			fall.innerText = emojiArray[n].character;
+			fall.style.left = r + "vw";
+			fall.style.top = "-" + v + "vh";
+		});
+	} catch (e) {
+		console.log(e);
+		setTimeout(falling, 4000);
+	}
 };
 falling();
-setInterval(falling, 5000);
+setInterval(falling, 3000);
