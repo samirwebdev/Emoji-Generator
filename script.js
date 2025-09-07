@@ -30,6 +30,7 @@ const showEmoji = () => {
 if (!localStorage.getItem("Emojis")) {
 	document.addEventListener("DOMContentLoaded", loadEmoji);
 } else {
+  emoji.innerText = "👌";
 	name.innerText = "Go on buddy! Everything is Ready.";
 }
 btn.addEventListener("click", showEmoji);
@@ -52,4 +53,4 @@ const falling = () => {
 	}
 };
 falling();
-setInterval(falling, 3000);
+setInterval(falling, 6000);
